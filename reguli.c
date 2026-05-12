@@ -16,6 +16,24 @@ void initializare_stare_reguli() {
     rege_negru_mutat = false; tura_neagra_stanga_mutata = false; tura_neagra_dreapta_mutata = false;
 }
 
+void get_stare_rocada(bool* stare_out) {
+    stare_out[0] = rege_alb_mutat;
+    stare_out[1] = tura_alba_stanga_mutata;
+    stare_out[2] = tura_alba_dreapta_mutata;
+    stare_out[3] = rege_negru_mutat;
+    stare_out[4] = tura_neagra_stanga_mutata;
+    stare_out[5] = tura_neagra_dreapta_mutata;
+}
+
+void set_stare_rocada(bool* stare_in) {
+    rege_alb_mutat = stare_in[0];
+    tura_alba_stanga_mutata = stare_in[1];
+    tura_alba_dreapta_mutata = stare_in[2];
+    rege_negru_mutat = stare_in[3];
+    tura_neagra_stanga_mutata = stare_in[4];
+    tura_neagra_dreapta_mutata = stare_in[5];
+}
+
 bool este_piesa_jucatorului(char piesa, Jucator jucator) {
     if (piesa == ' ') return false;
     if (jucator == ALB) return isupper(piesa);
@@ -63,7 +81,7 @@ bool mutare_pseudo_valida(char t[DIMENSIUNE_TABLA][DIMENSIUNE_TABLA], Pozitie su
                 if (t[cx][cy] != ' ') return false; // Coliziune
                 cx += pas_l; cy += pas_c;
             }
-            if (tip == 'r') return true; // Daca este Regină, merge si la linia de diagonala mai jos
+            return true; // Returnam true si pentru Regina, altfel pica mai jos si se anuleaza
         }
     }
 

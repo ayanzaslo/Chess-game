@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHESS</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>CHESS</h1>
+            <p id="game-status">Conectare la server...</p>
+        </header>
+
+        <main>
+            <div class="board-wrapper">
+                <div id="chessboard" class="chessboard">
+                    <!-- Javascript va insera patratele aici -->
+                </div>
+            </div>
+
+            <aside class="controls">
+                <div class="info-panel">
+                    <h3>Jucător Curent</h3>
+                    <div id="turn-indicator" class="turn-indicator">
+                        <div class="turn-dot alb active"></div>
+                        <span id="turn-text">Alb</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button id="btn-reset" class="btn primary">Joc Nou</button>
+                    <button id="btn-next-training" class="btn primary hidden" style="background-color: #f39c12; display: none;">Următorul Puzzle</button>
+                    <button id="btn-restart-training" class="btn primary hidden" style="background-color: #dc3545; display: none;">Resetează Puzzle (Retry)</button>
+                    <button id="btn-hint" class="btn primary" style="background-color: #28a745;">Sugestie Mutare (Rezolvă)</button>
+                    <button id="btn-save" class="btn secondary">Salvează (QuickSave)</button>
+                    <button id="btn-load" class="btn secondary">Încarcă (QuickLoad)</button>
+                </div>
+                
+                <div id="error-message" class="error-message"></div>
+                
+                <div class="move-history-panel" style="margin-top: 20px; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); padding: 15px; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); max-height: 250px; overflow-y: auto; border: 1px solid rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 12px; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; font-weight: 600; color: #2c3e50; font-size: 16px;">Istoric Mutări</h3>
+                    <ul id="move-history-list" style="list-style: none; padding: 0; font-family: 'Inter', sans-serif; font-size: 14px; margin: 0; color: #34495e;">
+                    </ul>
+                </div>
+            </aside>
+        </main>
+        
+        <footer>
+            <p>Dezvoltat cu C Backend & Python</p>
+        </footer>
+    </div>
+
+    <!-- Modal Alegere Culoare -->
+    <div id="setup-modal" class="modal-overlay hidden">
+        <div class="modal">
+            <h2>Alege modul de joc</h2>
+            <div class="modal-buttons">
+                <button id="btn-play-white" class="btn primary">Joacă cu Alb</button>
+                <button id="btn-play-black" class="btn dark-btn">Joacă cu Negru</button>
+                <button id="btn-play-local" class="btn secondary">Jucător vs Jucător (Local)</button>
+                <button id="btn-play-training" class="btn primary" style="background-color: #f39c12; margin-top: 10px;">Mod Antrenament (Random)</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

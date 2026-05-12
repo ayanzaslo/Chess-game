@@ -31,6 +31,10 @@ extern bool tura_neagra_dreapta_mutata;
 // Reseteaza starea jocului (util in caz de inceput de joc sau incarcarea jocului)
 void initializare_stare_reguli();
 
+// Getter si setter pentru rocada
+void get_stare_rocada(bool* stare_out);
+void set_stare_rocada(bool* stare_in);
+
 // Valideaza daca o mutare respecta regulile pieselor (fara sa includa logica de sah)
 bool mutare_pseudo_valida(char t[DIMENSIUNE_TABLA][DIMENSIUNE_TABLA], Pozitie sursa, Pozitie dest, Jucator jucator);
 
